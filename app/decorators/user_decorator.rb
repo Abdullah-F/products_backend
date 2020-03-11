@@ -1,13 +1,16 @@
-class UserDecorator < Draper::Decorator
+class UserDecorator < ApplicationDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def to_json
+    {
+      id: object.id,
+      name: object.name,
+      email: object.email,
+     # avatar_url: rails_blob_url(object.avatar),
+    }
+  end
 
+  def to_authenticated(athentication_info)
+    to_json.merge(athentication_info)
+  end
 end
