@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_144601) do
 
   create_table "promotions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "code"
-    t.boolean "active"
-    t.float "discount"
+    t.boolean "active", default: false
+    t.float "discount", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

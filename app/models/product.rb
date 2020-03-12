@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   belongs_to :department
   has_and_belongs_to_many :promotions
 
+  validates_presence_of :name, :price
+
 
   scope :search, ->(query, search_by) {
     case search_by

@@ -1,3 +1,4 @@
 class Department < ApplicationRecord
-  has_many :prodcuts
+  has_many :products
+  validates_presence_of :name
 end

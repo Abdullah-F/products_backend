@@ -4,6 +4,6 @@ class ProductsController < ApplicationController
     products = products.search(params[:query], params[:search_column]) if params[:query].present?
     products = products.by_department(params[:department_name]) if params[:department_name].present?
     products = products.by_promotion(params[:promotion_code]) if params[:promotion_code].present?
-    render json: products.decorate.to_json
+    render json: products.page(1).per(20).decorate.to_json
   end
 end

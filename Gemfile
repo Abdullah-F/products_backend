@@ -10,6 +10,7 @@ gem "simple_command", "~> 0.1.0"
 gem "bcrypt", "~> 3.1", ">= 3.1.12"
 gem "draper", "~> 4.0"
 gem "rack-cors", "~>1.1.1"
+gem 'kaminari', '~> 0.16.3'
 # Use mysql as the database for Active Record
 gem "mysql2", ">= 0.4.4"
 #gem 'sqlite3', '~> 1.4'
