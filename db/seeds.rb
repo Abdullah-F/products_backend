@@ -1,7 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#create user
 #
-# Examples:
+User.create name: "user", email: "user@domain.com", password: "123456"
+# create departments
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+10.times.each do |i|
+  Department.create name: "department_#{i}"
+end
+
+#create products
+departments = Department.all
+
+departments.each do |i|
+  20.times.each do |j|
+    Product.create name: "product_#{i.id}#{j}", price: 1000, department: i
+  end
+end
+
+
+#create promotions
+#generate unique codes
+codes = []
+
+10.times.each do |i|
+  loop do
+    code = SecureRandom.hex(20)
+    unless codes.include?(code)
+      codes << code
+      break
+    end
+  end
+end
+
+# simple calculation for promotions
+def calculate_dicsount index
+  ((index + 1) * 9)/ 100.0
+end
+
+codes.each_with_index do |code, index|
+  Promotion.create code: code, active: [false, true].sample,
+    discount: calculate_dicsount(index)
+end

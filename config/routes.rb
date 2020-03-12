@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post 'authenticate', to: 'authentications#authenticate'
-  resources :items, only: [:index]
   resources :users, only: [:new, :create]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :products, only: [:index]
+  resources :promotions, only: [:index]
 end
