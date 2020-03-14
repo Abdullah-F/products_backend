@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Promotion, type: :model do
-
   describe "[ promotions_columns ]" do
     let(:columns) { Promotion.column_names }
 
@@ -69,23 +68,13 @@ RSpec.describe Promotion, type: :model do
         expect(invalid_promotion).to_not be_valid
       end
 
-      it "it is not valid without an active status" do
-        invalid_promotion.active = nil
-        expect(invalid_promotion).to_not be_valid
-      end
-
-      it "it is not valid without discount" do
-        invalid_promotion.discount = nil
-        expect(invalid_promotion).to_not be_valid
-      end
-
       it "it has a unique code" do
-       promotion = create(:promotion)
-       promotion_dup = promotion.dup
-       promotion_dup.save
-       expect{
-         promotion_dup.update!(code: promotion.code)
-       }.to raise_error ActiveRecord::RecordInvalid
+        promotion = create(:promotion)
+        promotion_dup = promotion.dup
+        promotion_dup.save
+        expect {
+          promotion_dup.update!(code: promotion.code)
+        }.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
