@@ -22,17 +22,5 @@ services:
     env_file: .env
     environment:
       RAILS_ENV: development
-  frontend:
-    build:
-      context: ../products_front_end/
-    depends_on:
-      - app
-    volumes:
-      - ../products_front_end/:/app/
-      - ../products_front_end/node_modules:/app/node_modules
-    command: npm start
-    ports:
-      - "3001:3000"
-
 volumes:
   db-data:
