@@ -15,7 +15,7 @@ gem 'kaminari', '~> 0.16.3'
 gem "mysql2", ">= 0.4.4"
 #gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.3"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
